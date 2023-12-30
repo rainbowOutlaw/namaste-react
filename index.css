@@ -127,9 +127,42 @@ table {
 
 .header {
   display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem 0 1rem;
+  border: 1px solid black;
 }
 
 .logo {
   height: auto;
   width: 5rem;
+}
+
+.nav-items {
+  display: flex;
+  gap: 2rem;
+  padding-top: 0.5rem;
+}
+
+.search {
+  padding: 5px 5px 5px 0;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.res-img {
+  width: 6rem;
+  margin: 2px;
+}
+
+.res-card {
+  height: 8rem;
+  width: 7rem;
+}
+
+.res-card:hover {
+  border: 1px solid black;
 }
