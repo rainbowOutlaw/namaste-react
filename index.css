@@ -123,7 +123,7 @@ table {
   border-spacing: 0;
 }
 
-/* PROJECT CSS --------------------------------- */
+/* PROJECT CSS ------------------------------------------- */
 
 .header {
   display: flex;
@@ -150,6 +150,7 @@ table {
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: space-around; */
   gap: 3rem;
 }
 
