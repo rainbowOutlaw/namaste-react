@@ -763,18 +763,25 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  const { name, cloudinaryImageId, costForTwo, cuisines, avgRating, sla } =
+    props.resData;
+
   return (
     <div className="res-card">
       <img
         className="res-img"
-        src="https://media.istockphoto.com/id/1170813886/photo/popular-colorful-ingredients-as-like-tomatoes-cheese-mushroom-capsicum-olives-and-other.webp?b=1&s=170667a&w=0&k=20&c=vrPmEbMnCBCiKihzDDBQPLLopogI8xG7NlT5GOtoGr0="
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
         alt="pizza image"
       />
-      <h3>Delicious Pizza</h3>
-      <h4>Pizza</h4>
-      <h4>Italian</h4>
-      <h3>20 mins</h3>
+      <h3>{name}</h3>
+      <h3>{avgRating + " stars"}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h3>{costForTwo}</h3>
+      <h3>{sla.slaString}</h3>
     </div>
   );
 };
@@ -784,19 +791,14 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        {resObj.gridElements.infoWithStyle.restaurants.map((restaurant) => {
+          return (
+            <RestaurantCard
+              key={restaurant.info.id}
+              resData={restaurant.info}
+            />
+          );
+        })}
       </div>
     </div>
   );
