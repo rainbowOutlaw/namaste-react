@@ -1,3 +1,5 @@
+import { RES_IMG } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const { name, cloudinaryImageId, costForTwo, cuisines, avgRating, sla } =
     props.resData;
@@ -6,10 +8,7 @@ const RestaurantCard = (props) => {
     <div className="res-card">
       <img
         className="res-img"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
+        src={RES_IMG + cloudinaryImageId}
         alt="pizza image"
       />
       <h3>{name}</h3>

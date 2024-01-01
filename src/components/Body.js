@@ -1,11 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 
+import resList from "../utils/data";
+
 const Body = () => {
   return (
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        {resObj.gridElements.infoWithStyle.restaurants.map((restaurant) => {
+        {resList.map((restaurant) => {
           return (
             <RestaurantCard
               key={restaurant.info.id}
