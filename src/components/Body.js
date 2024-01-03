@@ -1,13 +1,53 @@
 import RestaurantCard from "./RestaurantCard";
 
 import resList from "../utils/data";
+import React from "react";
 
 const Body = () => {
+  const [listOfRestaurants, setListOfRestaurants] = React.useState(resList);
+
+  React.useEffect(() => {
+    // const json = fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2891084&lng=85.8083003&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    // );
+
+    // json
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setListOfRestaurants(
+    //       data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    //     );
+    //   });
+
+    async function getResData() {
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2891084&lng=85.8083003&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+
+      const response = await data.json();
+      setListOfRestaurants(
+        response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    }
+
+    getResData();
+  }, []);
+
+  function clickHandler() {
+    let currList = listOfRestaurants.filter(
+      (restaurant) => restaurant.info.avgRating >= 4
+    );
+    setListOfRestaurants(currList);
+  }
+
   return (
     <div className="body">
-      <div className="search">Search</div>
+      <div className="filter-res">
+        <button onClick={clickHandler}>Top Rated Restaurants</button>
+      </div>
       <div className="res-container">
-        {resList.map((restaurant) => {
+        {listOfRestaurants.map((restaurant) => {
           return (
             <RestaurantCard
               key={restaurant.info.id}
