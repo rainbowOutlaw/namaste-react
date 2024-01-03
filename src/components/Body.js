@@ -1,10 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-
-import resList from "../utils/data";
 import React from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = React.useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = React.useState([]);
 
   React.useEffect(() => {
     // const json = fetch(
@@ -39,6 +38,10 @@ const Body = () => {
       (restaurant) => restaurant.info.avgRating >= 4
     );
     setListOfRestaurants(currList);
+  }
+
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
   }
 
   return (
