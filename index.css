@@ -182,3 +182,11 @@ table {
   height: 300px;
   margin: 20px;
 }
+
+/* Search Input */
+
+.filter-res {
+  display: flex;
+  gap: 50px;
+  margin: 20px 0;
+}
