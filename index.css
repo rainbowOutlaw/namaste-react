@@ -196,3 +196,7 @@ table {
   gap: 50px;
   margin: 20px 0;
 }
+
+.user {
+  border: 1px solid black;
+}
