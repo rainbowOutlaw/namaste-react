@@ -6,8 +6,6 @@ export default function About() {
     <div>
       <h1>Namaste React</h1>
       <h4>About Us Page</h4>
-
-      <User name={"Saswat"} />
       <UserClass name={"Anshuman"} location={"California"} />
     </div>
   );
