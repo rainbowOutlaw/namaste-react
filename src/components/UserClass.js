@@ -8,10 +8,18 @@ export default class UserClass extends React.Component {
     this.state = {
       count: 0,
     };
+
+    console.log("Child constructor");
+  }
+
+  componentDidMount() {
+    console.log("Child Component Did Mount");
   }
 
   render() {
     const { count } = this.state;
+
+    console.log("Child Component did render");
     return (
       <div className="user">
         <h3>Count: {count}</h3>
