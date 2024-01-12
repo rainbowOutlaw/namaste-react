@@ -3,6 +3,7 @@ import React from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useIsOnline from "../utils/useIsOnline";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = React.useState([]);
@@ -10,6 +11,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = React.useState([]);
 
   const [searchText, setSearchText] = React.useState("");
+
+  const isOnline = useIsOnline();
 
   React.useEffect(() => {
     async function getResData() {
@@ -34,6 +37,12 @@ const Body = () => {
       (restaurant) => restaurant.info.avgRating >= 4
     );
     setListOfRestaurants(currList);
+  }
+
+  if (!isOnline) {
+    return (
+      <h1>You are currently offline! Please check your internet connection.</h1>
+    );
   }
 
   if (listOfRestaurants.length === 0) {
