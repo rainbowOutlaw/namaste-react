@@ -1,5 +1,7 @@
 import { SRC_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useIsOnline from "../utils/useIsOnline";
+import Grocery from "./Grocery";
 
 const Header = () => {
   return (
@@ -9,6 +11,9 @@ const Header = () => {
       </div>
       <ul className="nav-items">
         <li className="nav-item">
+          Online Status: {useIsOnline() ? "😀" : "🤢"}
+        </li>
+        <li className="nav-item">
           <Link to="/">Home</Link>
         </li>
         <li className="nav-item">
@@ -16,6 +21,9 @@ const Header = () => {
         </li>
         <li>
           <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+          <Link to="/grocery">Grocery</Link>
         </li>
         <li className="nav-item">Cart</li>
       </ul>
