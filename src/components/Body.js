@@ -50,12 +50,13 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filter-res">
-        <div className="search-input">
+    <div className="">
+      <div className="flex justify-center gap-5 my-4">
+        <div className="">
           <input
             value={searchText}
             onChange={(event) => setSearchText(event.target.value)}
+            className="border-2 border-black mr-10 p-1 rounded-md"
           />
           <button
             onClick={() => {
@@ -66,13 +67,19 @@ const Body = () => {
               );
               setFilteredRestaurants(currList);
             }}
+            className="rounded-md bg-pink-100 p-2 hover:bg-pink-200"
           >
             Search
           </button>
         </div>
-        <button onClick={clickHandler}>Top Rated Restaurants</button>
+        <button
+          onClick={clickHandler}
+          className="rounded-md bg-pink-100 p-2 hover:bg-pink-200"
+        >
+          Top Rated Restaurants
+        </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap gap-8 pl-8">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link

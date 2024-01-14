@@ -5,11 +5,11 @@ import Grocery from "./Grocery";
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between bg-pink-100">
+      <div className="w-24">
         <img className="logo" src={SRC_LOGO} alt="delivery app logo" />
       </div>
-      <ul className="nav-items">
+      <ul className="flex gap-10 mr-12 items-center">
         <li className="nav-item">
           Online Status: {useIsOnline() ? "😀" : "🤢"}
         </li>

@@ -1,5 +1,5 @@
 export const SRC_LOGO =
-  "https://media.istockphoto.com/id/1198248899/photo/stuffed-tomatoes-and-rice-with-tomato.jpg?s=1024x1024&w=is&k=20&c=RpwY_eAdY7ctEn1RJ3COZqoS4NkUo3HwPFS0Gb6rgyA=";
+  "https://img.freepik.com/free-psd/isolated-hamburger-with-splash-ink-background_1409-3855.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1704412800&semt=ais";
 
 export const RES_IMG =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
