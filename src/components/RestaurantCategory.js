@@ -1,11 +1,18 @@
 import ItemsList from "./ItemsList";
 import { useState } from "react";
 
-export default function RestaurantCategory({ data }) {
-  const [showItems, setShowItems] = useState(false);
-
+export default function RestaurantCategory({
+  data,
+  showItems,
+  onClick,
+  setIndexNull,
+}) {
   function handleClick() {
-    setShowItems(!showItems);
+    if (showItems) {
+      setIndexNull();
+      return;
+    }
+    onClick();
   }
 
   return (
