@@ -1,9 +1,13 @@
 import { SRC_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useIsOnline from "../utils/useIsOnline";
-import Grocery from "./Grocery";
+import { UseSelector, useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+
+  console.log(cartItems);
+
   return (
     <div className="flex justify-between bg-pink-100">
       <div className="w-24">
@@ -25,7 +29,9 @@ const Header = () => {
         <li>
           <Link to="/grocery">Grocery</Link>
         </li>
-        <li className="nav-item">Cart</li>
+        <li className="font-bold">
+          <Link to="/cart">Cart ({cartItems.length} items)</Link>
+        </li>
       </ul>
     </div>
   );

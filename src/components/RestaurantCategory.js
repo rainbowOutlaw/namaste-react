@@ -16,9 +16,12 @@ export default function RestaurantCategory({
   }
 
   return (
-    <div className="w-6/12 mx-auto cursor-pointer" onClick={handleClick}>
-      <div className="flex justify-between bg-slate-50 py-1 mt-2">
-        <span className="text-lg font-medium">
+    <div className="w-6/12 mx-auto cursor-pointer">
+      <div
+        className="flex justify-between bg-slate-50 py-1 mt-2"
+        onClick={handleClick}
+      >
+        <span className="text-lg font-bold">
           {data?.title} ({data?.itemCards.length})
         </span>
         <span>⬇️</span>
